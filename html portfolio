@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dane Andrew Fuentes | Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f8fc;
+            color: #1e293b;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 8%;
+
+            background-color: #ffffff;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #075985;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #075985;
+        }
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 100px 10%;
+
+            background-color: #eaf4ff;
+
+            gap: 60px;
+        }
+
+        .home-content {
+            max-width: 750px;
+            flex: 1;
+        }
+
+        .hello {
+            color: #075985;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .home-content h1 {
+            font-size: 65px;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .home-content h1 span {
+            color: #eab308;
+        }
+
+        .home-content h2 {
+            color: #334155;
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+
+        /* =========================
+           PROFILE PHOTO
+        ========================= */
+
+        .profile-container {
+            flex-shrink: 0;
+
+            width: 330px;
+            height: 330px;
+
+            border-radius: 50%;
+
+            padding: 8px;
+
+            background: #075985;
+
+            box-shadow:
+                0 0 0 8px #facc15,
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            display: block;
+
+            border: 5px solid white;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .button {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 13px 28px;
+
+            background-color: #075985;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #eab308;
+            color: #0c4a6e;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 90px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            color: #075985;
+
+            font-size: 36px;
+
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #eab308;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #64748b;
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        #skills {
+            background-color: #ffffff;
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #f8fafc;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            border-top: 4px solid #075985;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.07);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-top-color: #facc15;
+        }
+
+        .card h3 {
+            color: #075985;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-box {
+            max-width: 800px;
+
+            margin: auto;
+
+            padding: 35px;
+
+            background-color: #ffffff;
+
+            border-left: 6px solid #facc15;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-box h3 {
+            color: #075985;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .education-box p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        #projects {
+            background-color: #eaf4ff;
+        }
+
+        .project {
+            background-color: white;
+
+            padding: 25px;
+
+            margin-bottom: 18px;
+
+            border-radius: 8px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 3px 12px rgba(0, 0, 0, 0.06);
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateX(5px);
+        }
+
+        .project h3 {
+            color: #075985;
+            margin-bottom: 7px;
+        }
+
+        .project p {
+            color: #64748b;
+        }
+
+        .project-number {
+            color: #eab308;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           GOAL
+        ========================= */
+
+        .goal {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 45px;
+
+            background-color: #075985;
+
+            border-radius: 10px;
+
+            color: white;
+        }
+
+        .goal h3 {
+            color: #facc15;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .goal p {
+            line-height: 1.8;
+            color: #e0f2fe;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        #contact {
+            text-align: center;
+            background-color: white;
+        }
+
+        .contact-text {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            color: #075985;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .email:hover {
+            color: #eab308;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: #0c4a6e;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #facc15;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            #home {
+                flex-direction: column-reverse;
+
+                text-align: center;
+
+                padding-top: 120px;
+            }
+
+            .home-content {
+                max-width: 100%;
+            }
+
+            .home-content p {
+                margin: auto;
+            }
+
+            .profile-container {
+                width: 260px;
+                height: 260px;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            #home {
+                padding: 100px 7%;
+            }
+
+            .home-content h1 {
+                font-size: 45px;
+            }
+
+            .home-content h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 70px 7%;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .profile-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            .project {
+                display: block;
+            }
+
+            .project-number {
+                margin-top: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Dane's Portfolio
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HOME
+    ========================= -->
+
+    <section id="home">
+
+        <div class="home-content">
+
+            <div class="hello">
+                Hello, I'm
+            </div>
+
+            <h1>
+                Dane Andrew <span>Fuentes</span>
+            </h1>
+
+            <h2>
+                BSIT Student & Future Network Administrator
+            </h2>
+
+            <p>
+                I am an Information Technology student interested
+                in computers, programming, networking, and
+                technology. I am continuously learning and
+                developing my skills to prepare for my future career.
+            </p>
+
+            <a href="#about" class="button">
+                Learn More
+            </a>
+
+        </div>
+
+
+        <!-- PROFILE PHOTO -->
+
+        <div class="profile-container">
+
+            <img src="don.jpg" alt="Dane Andrew Fuentes">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about">
+
+            <p>
+                My name is Dane Andrew D. Fuentes. I am currently
+                a first-year Bachelor of Science in Information
+                Technology student from University of Science and 
+		Technology of Southern Philippines.
+            </p>
+
+            <p>
+                I enjoy learning about computers, programming,
+                networking, and different technologies. I believe
+                that improving my skills requires patience,
+                practice, and continuous learning.
+            </p>
+
+            <p>
+                During my free time, I enjoy watching movies and
+                series, sleeping, exercising, walking, and playing
+                mind games.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>HTML</h3>
+
+                <p>
+                    Creating organized and structured
+                    web pages using HTML.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>CSS</h3>
+
+                <p>
+                    Designing websites with layouts,
+                    colors, and responsive styles.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Programming</h3>
+
+                <p>
+                    Learning C and Python along with
+                    basic programming concepts.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Networking</h3>
+
+                <p>
+                    Developing my knowledge of computer
+                    networks and network administration.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section>
+
+        <h2 class="section-title">
+            <span>Education</span>
+        </h2>
+
+        <div class="education-box">
+
+            <h3>
+                Bachelor of Science in Information Technology
+            </h3>
+
+            <p>
+                1st Year — BSIT-1R13
+            </p>
+
+            <p>
+                Currently learning programming, web development,
+                computer systems, and networking.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+
+        <div class="project">
+
+            <div>
+
+                <h3>
+                    Personal Portfolio
+                </h3>
+
+                <p>
+                    A personal website created using HTML and CSS.
+                </p>
+
+            </div>
+
+            <div class="project-number">
+                01
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div>
+
+                <h3>
+                    Lost & Found System
+                </h3>
+
+                <p>
+                    A web-based concept for reporting and
+                    claiming lost items.
+                </p>
+
+            </div>
+
+            <div class="project-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div>
+
+                <h3>
+                    Programming Activities
+                </h3>
+
+                <p>
+                    Basic programming exercises involving
+                    conditions, loops, and calculations.
+                </p>
+
+            </div>
+
+            <div class="project-number">
+                03
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GOAL
+    ========================= -->
+
+    <section>
+
+        <h2 class="section-title">
+            My <span>Goal</span>
+        </h2>
+
+        <div class="goal">
+
+            <h3>
+                FUTURE NETWORK ADMINISTRATOR
+            </h3>
+
+            <p>
+                My goal is to become a skilled Network Administrator.
+                I want to improve my knowledge of networks, servers,
+                cybersecurity, and computer systems while developing
+                strong technical and problem-solving skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
+
+        <p class="contact-text">
+            You can reach me through my email:
+        </p>
+
+        <a
+            href="mailto:your-email@example.com"
+            class="email"
+        >
+            fuentes.daneandrew@gmail.com
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Dane Andrew Fuentes.
+            <span>All Rights Reserved.</span>
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
