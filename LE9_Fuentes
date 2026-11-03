@@ -1,0 +1,67 @@
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    char name[100], course[100];
+    char line[200];
+    int age, students;
+
+    // Writing Student Database
+    fp = fopen("student_records.txt", "w");
+
+    if (fp == NULL) {
+        printf("Error creating file!\n");
+        return 1;
+    }
+
+    printf("Writing Student Database:\n");
+    printf("How many students do you want to record? ");
+    scanf("%d", &students);
+    getchar();
+
+    for (int i = 1; i <= students; i++) {
+        printf("\nStudent %d\n", i);
+
+        printf("Enter Name: ");
+        fgets(name, sizeof(name), stdin);
+        name[strcspn(name, "\n")] = '\0';
+
+        printf("Enter Age: ");
+        scanf("%d", &age);
+        getchar();
+
+        printf("Enter Course: ");
+        fgets(course, sizeof(course), stdin);
+        course[strcspn(course, "\n")] = '\0';
+
+        fprintf(fp, "Student %d\n", i);
+        fprintf(fp, "Name: %s\n", name);
+        fprintf(fp, "Age: %d\n", age);
+        fprintf(fp, "Course: %s\n", course);
+        fprintf(fp, "____________________\n\n");
+    }
+
+    fclose(fp);
+
+    printf("\nStudent database successfully saved to file.\n");
+
+    // Reading Student Database
+    fp = fopen("student_records.txt", "r");
+
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    printf("\nReading Student Database:\n\n");
+
+    while (fgets(line, sizeof(line), fp) != NULL) {
+        printf("%s", line);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
